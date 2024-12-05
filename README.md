@@ -8,7 +8,7 @@ World of Tanks. It is a static site that runs completely in your browser.
 The format of `.wotreplay` files tend to change with every release of WoT (including micro patches). In addition, structure of many packets remain a mystery after all these years. This tool makes it easy to keep up with changes in the file format as well as to discover the structure of unknown packets.
 
 
-## How to Use
+## How to Use (Chrome highly recommended)
 1. Go to the webapp: https://rajesh-rahul.github.io/wot-packet-analyzer/
 2. Open a replay file (or open the demo/example replay)
 

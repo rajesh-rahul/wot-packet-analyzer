@@ -12,6 +12,7 @@ The format of `.wotreplay` files tend to change with every release of WoT (inclu
 1. Go to the webapp: https://rajesh-rahul.github.io/wot-packet-analyzer/
 2. Open a replay file (or open the demo/example replay)
 
+![Demo video](wot-packet-analyzer-demo.gif)
 
 ## Features
 

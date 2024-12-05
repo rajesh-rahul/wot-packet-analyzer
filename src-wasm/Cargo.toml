@@ -1,0 +1,20 @@
+[package]
+name = "src-wasm"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wasm-bindgen = "0.2.95"
+wot_replay_parser = { git = "https://github.com/dacite/wot-battle-results-parser", branch = "dev" }
+console_error_panic_hook = "0.1.7"
+miniz_oxide = "0.8.0"
+serde-pickle = "1.1.1"
+once_cell = "1.20.2"
+serde_json = "1.0.133"
+itertools = "0.13.0"
+serde = "1.0.215"
+aho-corasick = "1.1.3"
+byteorder = "1.5.0"

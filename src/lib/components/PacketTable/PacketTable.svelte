@@ -16,7 +16,7 @@
 	async function loadExampleReplay() {
 		try {
 			let res = await fetch(
-				'https://rajesh-rahul.github.io/wot-packet-analyzer/public/example.wotreplay'
+				'https://rajesh-rahul.github.io/wot-packet-analyzer/example.wotreplay'
 			);
 			let byteArray = new Uint8Array(await res.arrayBuffer());
 			const result = wasm.parse_replay(byteArray);

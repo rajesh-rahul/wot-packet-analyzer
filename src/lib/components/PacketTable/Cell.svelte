@@ -134,7 +134,7 @@
 		@apply border-b-2 border-b-pink-700;
 	}
 
-	.entity-ascii:not(.selected) {
+	.entity-id-ascii:not(.selected) {
 		@apply bg-pink-700/20;
 	}
 </style>

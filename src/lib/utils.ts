@@ -5,83 +5,87 @@ import type { TransitionConfig } from 'svelte/transition';
 import * as wasm from '$wasm/src_wasm';
 
 export function cn(...inputs: ClassValue[]) {
-	return twMerge(clsx(inputs));
+    return twMerge(clsx(inputs));
 }
 
 type FlyAndScaleParams = {
-	y?: number;
-	x?: number;
-	start?: number;
-	duration?: number;
+    y?: number;
+    x?: number;
+    start?: number;
+    duration?: number;
 };
 
 export const flyAndScale = (
-	node: Element,
-	params: FlyAndScaleParams = { y: -8, x: 0, start: 0.95, duration: 150 }
+    node: Element,
+    params: FlyAndScaleParams = { y: -8, x: 0, start: 0.95, duration: 150 }
 ): TransitionConfig => {
-	const style = getComputedStyle(node);
-	const transform = style.transform === 'none' ? '' : style.transform;
+    const style = getComputedStyle(node);
+    const transform = style.transform === 'none' ? '' : style.transform;
 
-	const scaleConversion = (valueA: number, scaleA: [number, number], scaleB: [number, number]) => {
-		const [minA, maxA] = scaleA;
-		const [minB, maxB] = scaleB;
+    const scaleConversion = (
+        valueA: number,
+        scaleA: [number, number],
+        scaleB: [number, number]
+    ) => {
+        const [minA, maxA] = scaleA;
+        const [minB, maxB] = scaleB;
 
-		const percentage = (valueA - minA) / (maxA - minA);
-		const valueB = percentage * (maxB - minB) + minB;
+        const percentage = (valueA - minA) / (maxA - minA);
+        const valueB = percentage * (maxB - minB) + minB;
 
-		return valueB;
-	};
+        return valueB;
+    };
 
-	const styleToString = (style: Record<string, number | string | undefined>): string => {
-		return Object.keys(style).reduce((str, key) => {
-			if (style[key] === undefined) return str;
-			return str + `${key}:${style[key]};`;
-		}, '');
-	};
+    const styleToString = (style: Record<string, number | string | undefined>): string => {
+        return Object.keys(style).reduce((str, key) => {
+            if (style[key] === undefined) return str;
+            return str + `${key}:${style[key]};`;
+        }, '');
+    };
 
-	return {
-		duration: params.duration ?? 200,
-		delay: 0,
-		css: (t) => {
-			const y = scaleConversion(t, [0, 1], [params.y ?? 5, 0]);
-			const x = scaleConversion(t, [0, 1], [params.x ?? 0, 0]);
-			const scale = scaleConversion(t, [0, 1], [params.start ?? 0.95, 1]);
+    return {
+        duration: params.duration ?? 200,
+        delay: 0,
+        css: (t) => {
+            const y = scaleConversion(t, [0, 1], [params.y ?? 5, 0]);
+            const x = scaleConversion(t, [0, 1], [params.x ?? 0, 0]);
+            const scale = scaleConversion(t, [0, 1], [params.start ?? 0.95, 1]);
 
-			return styleToString({
-				transform: `${transform} translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-				opacity: t
-			});
-		},
-		easing: cubicOut
-	};
+            return styleToString({
+                transform: `${transform} translate3d(${x}px, ${y}px, 0) scale(${scale})`,
+                opacity: t
+            });
+        },
+        easing: cubicOut
+    };
 };
 
 export function toHex(number: number, withTag?: boolean) {
-	if (number == null) return 'XX';
-	const hex = number.toString(16).toUpperCase().padStart(2, '0');
-	if (withTag) {
-		return '0x' + hex;
-	} else {
-		return hex;
-	}
+    if (number == null) return 'XX';
+    const hex = number.toString(16).toUpperCase().padStart(2, '0');
+    if (withTag) {
+        return '0x' + hex;
+    } else {
+        return hex;
+    }
 }
 
 export function binarySearch(packets: wasm.Packet[], target: number) {
-	let left = 0;
-	let right = packets.length - 1;
+    let left = 0;
+    let right = packets.length - 1;
 
-	while (left <= right) {
-		const mid = Math.trunc((left + right) / 2);
-		const value = packets[mid].index;
+    while (left <= right) {
+        const mid = Math.trunc((left + right) / 2);
+        const value = packets[mid].index;
 
-		if (value === target) {
-			return mid;
-		} else if (value < target) {
-			left = mid + 1;
-		} else {
-			right = mid - 1;
-		}
-	}
+        if (value === target) {
+            return mid;
+        } else if (value < target) {
+            left = mid + 1;
+        } else {
+            right = mid - 1;
+        }
+    }
 
-	return null;
+    return null;
 }

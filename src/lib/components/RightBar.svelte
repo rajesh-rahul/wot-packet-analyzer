@@ -7,7 +7,7 @@
 </script>
 
 <div class="h-full">
-    <div class="flex h-full min-w-[310px] max-w-[300px] flex-col gap-2 px-6">
+    <div class="flex h-full w-[310px] flex-col gap-2 px-6">
         <div class="overflow-hidden rounded border border-gray-600">
             <div class="flex items-center gap-2 rounded-t bg-primary py-1 text-background">
                 <span class="pl-5 text-lg font-extrabold">Replay Overview</span>

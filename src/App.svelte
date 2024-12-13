@@ -36,7 +36,7 @@
 
 <main>
     <TopNav {onFileChange} />
-    <div class="flex h-full w-full justify-around pt-4">
+    <div class="flex h-full w-full justify-around pt-2">
         <LeftBar />
         <div class="flex flex-col">
             <PacketTable />

@@ -1,10 +1,5 @@
 <script lang="ts">
-    import {
-        app_state,
-        SegmentType,
-        selection_state,
-        type SelectionStateType
-    } from '$lib/AppState.svelte';
+    import { app_state, selection_state, type SelectionStateType } from '$lib/AppState.svelte';
     import { replay } from '$lib/ReplayState.svelte';
     import Button from './ui/button/button.svelte';
     import Label from './ui/label/label.svelte';
@@ -88,53 +83,61 @@
     }
 </script>
 
-<div class="flex flex-col px-4">
-    <div class="flex flex-col justify-around gap-3">
-        <div class="flex items-center">
-            <span class="mb-[2px] pr-2 text-[0.9rem]">Selection Size:</span>
-            {#if selection_state.state.kind !== 'NoSelection'}
-                <span class="font-mono text-[0.94rem]"
-                    >{selection_state.state.endOffset + 1 - selection_state.state.startOffset}</span
-                >
-            {/if}
-        </div>
-        <div class="flex flex-col gap-1.5">
-            <Label class="font-extrabold" for="replay_time">Find Selection</Label>
-            <div class="flex flex-wrap items-center gap-1.5">
+<div class="flex h-[calc(100vh-510px)] flex-col px-4 pt-1">
+    <div class="flex h-full flex-col justify-around gap-2">
+        <div class="flex items-center justify-between">
+            <div class="w-[75px] pr-1">
+                <span class="mb-[2px] text-[0.9rem]">Size:</span>
+                {#if selection_state.state.kind !== 'NoSelection'}
+                    <span class="font-mono text-[0.9rem]"
+                        >{selection_state.state.endOffset +
+                            1 -
+                            selection_state.state.startOffset}</span
+                    >
+                {:else}
+                    <span>{'   '}</span>
+                {/if}
+            </div>
+
+            <div>
                 <Button
                     size="sm"
+                    class="px-1"
                     onclick={() => searchSelection('before')}
-                    disabled={selection_state.state.kind === 'NoSelection'}>Before</Button
+                    disabled={selection_state.state.kind === 'NoSelection'}>Find Before</Button
                 >
                 <Button
                     size="sm"
+                    class="px-1"
                     onclick={() => searchSelection('after')}
-                    disabled={selection_state.state.kind === 'NoSelection'}>After</Button
+                    disabled={selection_state.state.kind === 'NoSelection'}>Find After</Button
                 >
             </div>
         </div>
         <div class="flex flex-col gap-1.5">
             <Label class="font-extrabold" for="replay_time">Actions</Label>
-            <div class="flex flex-wrap items-center gap-1.5">
+            <div class="flex flex-wrap items-center justify-between gap-1.5">
                 <Button
                     size="sm"
+                    class="px-1"
                     onclick={() => decompressStream(selection_state.state)}
-                    disabled={selection_state.state.kind === 'NoSelection'}>Decompress</Button
+                    disabled={selection_state.state.kind === 'NoSelection'}>Unzip</Button
                 >
                 <Button
                     size="sm"
+                    class="px-1"
                     onclick={() => parsePickleStream(selection_state.state)}
                     disabled={selection_state.state.kind === 'NoSelection'}>Unpickle</Button
                 >
                 <Button
                     size="sm"
+                    class="px-1"
                     onclick={() => decompressAndParsePickleStream(selection_state.state)}
-                    disabled={selection_state.state.kind === 'NoSelection'}
-                    >Decompress & Unpickle</Button
+                    disabled={selection_state.state.kind === 'NoSelection'}>Unzip & Unpickle</Button
                 >
             </div>
         </div>
-        <div class="flex flex-col gap-1.5">
+        <div class="flex h-full flex-col gap-1">
             <div>
                 <Label class="font-extrabold" for="replay_time">Analysis Result</Label>
                 <Button
@@ -148,7 +151,7 @@
             </div>
             <Textarea
                 bind:value={app_state.analysisResult}
-                class="h-[calc(100vh-980px)] font-mono"
+                class="h-full font-mono"
                 placeholder="Make a selection and perform one of the actions above. Result will show up here"
             />
         </div>

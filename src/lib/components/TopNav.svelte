@@ -11,10 +11,10 @@
     }
 </script>
 
-<div class="border shadow-sm">
+<div class="border-y shadow-sm">
     <div class="container mx-auto py-2">
         <div class="prose flex justify-between">
-            <h2 class="scroll-m-20 text-4xl font-extrabold tracking-tight">
+            <h2 class="scroll-m-20 text-2xl font-extrabold tracking-tight">
                 WotReplay Packet Analyzer
             </h2>
             <div>
@@ -28,10 +28,14 @@
                         hidden
                     />
                 </form>
-                <Button disabled={replay.packets.length !== 0} onclick={() => fileInput!.click()}
-                    >Open</Button
+                <Button
+                    size="sm"
+                    disabled={replay.packets.length !== 0}
+                    onclick={() => fileInput!.click()}>Open</Button
                 >
-                <Button disabled={replay.packets.length === 0} onclick={resetFile}>Reset</Button>
+                <Button size="sm" disabled={replay.packets.length === 0} onclick={resetFile}
+                    >Reset</Button
+                >
             </div>
         </div>
     </div>

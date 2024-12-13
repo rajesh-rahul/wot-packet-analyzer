@@ -30,38 +30,44 @@
 </script>
 
 <div class="overflow-hidden">
-    <div class="flex items-center">
-        <span class="left-side">UInt8:</span>
-        <div class="mr-2 h-[25px] w-full border-b border-gray-500">
-            <span class="right-side">{errToNull(() => view.getUint8(0))}</span>
+    <div class="flex justify-between gap-1">
+        <div class="flex items-center">
+            <span class="left-side">U8:</span>
+            <div class="h-[25px] w-[65px] border-b border-gray-500">
+                <span class="right-side">{errToNull(() => view.getUint8(0))}</span>
+            </div>
+        </div>
+        <div class="mr-2 flex items-center">
+            <span class="px-2 text-right font-mono text-[0.8rem] font-semibold">I8:</span>
+            <div class="h-[25px] w-[65px] border-b border-gray-500">
+                <span class="right-side">{errToNull(() => view.getInt8(0))}</span>
+            </div>
         </div>
     </div>
-    <div class="flex items-center">
-        <span class="left-side">Int8:</span>
-        <div class="mr-2 h-[25px] w-full border-b border-gray-500">
-            <span class="right-side">{errToNull(() => view.getInt8(0))}</span>
+
+    <div class="flex items-center justify-between">
+        <div class="flex items-center">
+            <span class="left-side">U16:</span>
+            <div class="mr-2 h-[25px] w-[65px] border-b border-gray-500">
+                <span class="right-side">{errToNull(() => view.getUint16(0, true))}</span>
+            </div>
+        </div>
+        <div class="flex items-center">
+            <span class="px-2 text-right font-mono text-[0.8rem] font-semibold">I16:</span>
+            <div class="mr-2 h-[25px] w-[65px] border-b border-gray-500">
+                <span class="right-side">{errToNull(() => view.getInt16(0, true))}</span>
+            </div>
         </div>
     </div>
+
     <div class="flex items-center">
-        <span class="left-side">UInt16:</span>
-        <div class="mr-2 h-[25px] w-full border-b border-gray-500">
-            <span class="right-side">{errToNull(() => view.getUint16(0, true))}</span>
-        </div>
-    </div>
-    <div class="flex items-center">
-        <span class="left-side">Int16:</span>
-        <div class="mr-2 h-[25px] w-full border-b border-gray-500">
-            <span class="right-side">{errToNull(() => view.getInt16(0, true))}</span>
-        </div>
-    </div>
-    <div class="flex items-center">
-        <span class="left-side">UInt32:</span>
+        <span class="left-side">U32:</span>
         <div class="mr-2 h-[25px] w-full border-b border-gray-500">
             <span class="right-side">{errToNull(() => view.getUint32(0, true))}</span>
         </div>
     </div>
     <div class="flex items-center">
-        <span class="left-side">Int32:</span>
+        <span class="left-side">I32:</span>
         <div class="mr-2 h-[25px] w-full border-b border-gray-500">
             <span class="right-side">{errToNull(() => view.getInt32(0, true))}</span>
         </div>
@@ -75,13 +81,13 @@
         </div>
     </div>
     <div class="flex items-center">
-        <span class="left-side">UInt64:</span>
+        <span class="left-side">U64:</span>
         <div class="mr-2 h-[25px] w-full border-b border-gray-500">
             <span class="right-side">{errToNull(() => view.getBigUint64(0, true))}</span>
         </div>
     </div>
     <div class="flex items-center">
-        <span class="left-side">Int64:</span>
+        <span class="left-side">I64:</span>
         <div class="mr-2 h-[25px] w-full border-b border-gray-500">
             <span class="right-side">{errToNull(() => view.getBigInt64(0, true))}</span>
         </div>
@@ -98,10 +104,10 @@
 
 <style lang="postcss">
     .left-side {
-        @apply block min-w-[70px] px-2 text-right text-[0.9rem] font-semibold;
+        @apply block min-w-[55px] px-2 text-right text-[0.8rem] font-semibold;
     }
 
     .right-side {
-        @apply font-mono text-[0.94rem] text-sm;
+        @apply font-mono text-[0.8rem] text-sm;
     }
 </style>

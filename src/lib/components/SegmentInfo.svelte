@@ -103,7 +103,7 @@
     }
 </script>
 
-<div class="flex min-h-[200px] flex-col px-4">
+<div class="flex min-h-[150px] flex-col px-4">
     {#if focusedSegmentType === SegmentType.ZLIB}
         <div class="flex flex-col justify-around gap-1">
             <div class="flex items-center">
@@ -113,12 +113,7 @@
             <p class="text-center text-sm tracking-tight text-gray-400">
                 Segment contains compressed data. <span class="font-bold">Select Full Segment</span>
                 and
-                <span class="font-bold">Decompress</span> it to view data.
-            </p>
-            <p class="text-center text-sm tracking-tight text-gray-400">
-                Almost always, decompressed data is a pickle stream so <span class="font-bold"
-                    >Decompress & Unpickle</span
-                > will be needed
+                <span class="font-bold">Unzip and/or Unpickle</span> it to view data.
             </p>
             <Button class="mt-1" size="sm" onclick={() => selectFullSegment(selection_state.state)}
                 >Select Full Segment</Button
@@ -154,44 +149,43 @@
         <div class="flex flex-grow flex-col gap-1 overflow-hidden">
             <div>
                 <div class="flex items-center">
-                    <span class="mb-[2px] min-w-[60px] pr-2 text-right text-[0.9rem] font-semibold"
+                    <span class="mb-[1px] min-w-[60px] pr-2 text-right text-[0.8rem] font-semibold"
                         >Type:</span
                     >
-                    <span class="font-mono text-[0.94rem]">Vehicle ID</span>
+                    <span class="font-mono text-[0.8rem]">Vehicle ID</span>
                 </div>
 
                 <div class="flex items-center">
-                    <span class="mb-[2px] min-w-[60px] pr-2 text-right text-[0.9rem] font-semibold"
+                    <span class="mb-[1px] min-w-[60px] pr-2 text-right text-[0.8rem] font-semibold"
                         >Name:</span
                     >
-                    <span class="font-mono text-[0.94rem]"
+                    <span class="font-mono text-[0.8rem]"
                         >{`${vehicleInfo.name}${vehicleInfo.clan}`}</span
                     >
                 </div>
 
                 <div class="flex items-center">
-                    <span class="mb-[2px] min-w-[60px] pr-2 text-right text-[0.9rem] font-semibold"
+                    <span class="mb-[1px] min-w-[60px] pr-2 text-right text-[0.8rem] font-semibold"
                         >Nation:</span
                     >
-                    <span class="font-mono text-[0.94rem]">{vehicleInfo.nation}</span>
+                    <span class="font-mono text-[0.8rem]">{vehicleInfo.nation}</span>
                 </div>
                 <div class="flex items-center">
-                    <span class="mb-[2px] min-w-[60px] pr-2 text-right text-[0.9rem] font-semibold"
+                    <span class="mb-[1px] min-w-[60px] pr-2 text-right text-[0.8rem] font-semibold"
                         >Vehicle:</span
                     >
-                    <span class="font-mono text-[0.94rem]">{vehicleInfo.vehicle}</span>
+                    <span class="font-mono text-[0.8rem]">{vehicleInfo.vehicle}</span>
                 </div>
                 <div class="flex items-center">
-                    <span class="mb-[2px] min-w-[60px] pr-2 text-right text-[0.9rem] font-semibold"
+                    <span class="mb-[1px] min-w-[60px] pr-2 text-right text-[0.8rem] font-semibold"
                         >Team:</span
                     >
-                    <span class="font-mono text-[0.94rem]">{vehicleInfo.team}</span>
+                    <span class="font-mono text-[0.8rem]">{vehicleInfo.team}</span>
                 </div>
             </div>
 
             <p class="text-center text-sm tracking-tight text-gray-400">
-                Vehicle IDs are entity IDs that belong to players in the replay. Match could also be
-                coincidence
+                Vehicle IDs are entity IDs that belong to players in the replay.
             </p>
         </div>
     {:else if focusedSegmentType === SegmentType.ENTITY_ID}
@@ -210,12 +204,7 @@
             </div>
 
             <p class="text-center text-sm tracking-tight text-gray-400">
-                A replay contains entities such as Avatar, Vehicle and AreaDestructibles. This ID
-                belongs to either an Avatar or AreaDestructibles entity.
-            </p>
-            <p class="text-center text-sm tracking-tight text-gray-400">
-                It may also be a coincidence that this segment matched an actual entity ID in this
-                replay
+                A replay contains entities such as Avatar, Vehicle and AreaDestructibles
             </p>
         </div>
     {:else if focusedSegmentType === SegmentType.NORMAL}

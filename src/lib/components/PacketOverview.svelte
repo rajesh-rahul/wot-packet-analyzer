@@ -62,7 +62,7 @@
                 <Table.Head class="w-[7rem] px-4 text-right">Count</Table.Head>
             </Table.Row>
         </Table.Header>
-        <Table.Body class="block h-[calc(100vh-712px)] overflow-y-auto overflow-x-hidden">
+        <Table.Body class="block h-[calc(100vh-660px)] overflow-y-auto overflow-x-hidden">
             {#each replay.packetSummary as pkt}
                 <Table.Row class="">
                     <Table.Cell class="w-[2.7rem] font-medium"

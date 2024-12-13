@@ -111,24 +111,38 @@
     }}
 />
 
-<div class="flex flex-col gap-3 px-4 py-2">
-    <div class="flex flex-col gap-1.5">
-        <Label for="replay_time">Go to Replay Time</Label>
-        <div class="flex items-center gap-1.5">
-            <Input id="replay_time" placeholder="5:25" bind:value={replayTimeValue} />
-            <Button
-                size="sm"
-                class="basis-2/12"
-                disabled={replay.shownPackets.length === 0 || replayTimeValue.length === 0}
-                onclick={() => {
-                    feedbackMsg = findPacketWithReplayTime(replayTimeValue);
-                }}>Go</Button
-            >
+<div class="flex flex-col gap-3 px-3 py-1">
+    <div class="flex gap-2">
+        <div class="flex flex-col gap-1">
+            <Label class="text-[0.8rem]" for="packet_id">Go to Packet ID</Label>
+            <div class="flex items-center gap-1">
+                <Input id="packet_id" placeholder="116037" bind:value={goToPacketIdValue} />
+                <Button
+                    size="sm"
+                    disabled={replay.shownPackets.length === 0 || goToPacketIdValue.length === 0}
+                    onclick={() => (feedbackMsg = findPacketWithId(goToPacketIdValue))}>Go</Button
+                >
+            </div>
+        </div>
+        <div class="flex flex-col gap-1">
+            <Label class="text-[0.8rem]" for="replay_time">Go to Replay Time</Label>
+            <div class="flex items-center gap-1">
+                <Input id="replay_time" placeholder="5:25" bind:value={replayTimeValue} />
+                <Button
+                    size="sm"
+                    class="basis-2/12"
+                    disabled={replay.shownPackets.length === 0 || replayTimeValue.length === 0}
+                    onclick={() => {
+                        feedbackMsg = findPacketWithReplayTime(replayTimeValue);
+                    }}>Go</Button
+                >
+            </div>
         </div>
     </div>
-    <div class="flex flex-col gap-1.5">
-        <Label for="packet_type">Find by Packet Type</Label>
-        <div class="flex items-center gap-1.5">
+
+    <div class="flex flex-col gap-1">
+        <Label class="text-[0.8rem]" for="packet_type">Find by Packet Type</Label>
+        <div class="flex items-center gap-1">
             <Input id="packet_type" placeholder="0x0A or 10" bind:value={packetTypeValue} />
             <Button
                 size="sm"
@@ -141,17 +155,6 @@
                 disabled={replay.shownPackets.length === 0 || packetTypeValue.length === 0}
                 onclick={() => (feedbackMsg = findPacketByType(packetTypeValue, 'after'))}
                 >After</Button
-            >
-        </div>
-    </div>
-    <div class="flex flex-col gap-1.5">
-        <Label for="packet_id">Go to Packet ID</Label>
-        <div class="flex items-center gap-1.5">
-            <Input id="packet_id" placeholder="116037" bind:value={goToPacketIdValue} />
-            <Button
-                size="sm"
-                disabled={replay.shownPackets.length === 0 || goToPacketIdValue.length === 0}
-                onclick={() => (feedbackMsg = findPacketWithId(goToPacketIdValue))}>Go</Button
             >
         </div>
     </div>

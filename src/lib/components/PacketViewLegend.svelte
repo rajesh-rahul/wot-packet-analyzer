@@ -1,5 +1,5 @@
 <div class="flex gap-3 py-2">
-    <span class="font-mono text-lg font-bold">Segments: </span>
+    <span class="font-mono font-bold">Segments: </span>
     <div class="flex items-center gap-2">
         <div class="block h-4 w-4 rounded bg-teal-600"></div>
         <span class="font-mono text-sm">Payload Size</span>

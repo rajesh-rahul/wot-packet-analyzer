@@ -16,7 +16,7 @@
     });
 </script>
 
-<div class="flex h-[130px] flex-col justify-around">
+<div class="flex h-[100px] flex-col justify-around">
     <div class="flex items-center">
         <span class="left-side">Tank:</span>
         <span class="right-side">{replay.json?.playerVehicle}</span>
@@ -43,10 +43,10 @@
 
 <style lang="postcss">
     .left-side {
-        @apply block min-w-[75px] px-2 text-right text-[0.9rem] font-semibold;
+        @apply block min-w-[75px] px-2 text-right text-[0.7rem] font-semibold;
     }
 
     .right-side {
-        @apply font-mono text-[0.94rem];
+        @apply font-mono text-[0.8rem];
     }
 </style>

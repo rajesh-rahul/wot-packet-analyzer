@@ -5,7 +5,7 @@
 </script>
 
 <div class="h-full">
-    <div class="flex h-full min-w-[310px] flex-col gap-2 px-6">
+    <div class="flex h-full w-[310px] flex-col gap-2 px-6">
         <div class="rounded border border-gray-600">
             <div class="rounded-t bg-primary py-1 text-background">
                 <span class="pl-5 text-lg font-extrabold">Data View</span>

@@ -10,7 +10,15 @@ export function __wbg_get_entityinfo_entity_id(a: number): number;
 export function __wbg_set_entityinfo_entity_id(a: number, b: number): void;
 export function __wbg_get_entityinfo_entity_type_id(a: number): number;
 export function __wbg_set_entityinfo_entity_type_id(a: number, b: number): void;
-export function search_value(a: number, b: number, c: number, d: number, e: number, f: number, g: number): number;
+export function search_value(
+    a: number,
+    b: number,
+    c: number,
+    d: number,
+    e: number,
+    f: number,
+    g: number
+): number;
 export function __wbg_packet_free(a: number, b: number): void;
 export function __wbg_get_packet_index(a: number): number;
 export function __wbg_set_packet_index(a: number, b: number): void;
@@ -24,7 +32,11 @@ export function __wbg_get_packet_time(a: number): number;
 export function __wbg_set_packet_time(a: number, b: number): void;
 export function __wbg_packetanalysisresult_free(a: number, b: number): void;
 export function __wbg_get_packetanalysisresult_packet_summary(a: number): Array;
-export function __wbg_set_packetanalysisresult_packet_summary(a: number, b: number, c: number): void;
+export function __wbg_set_packetanalysisresult_packet_summary(
+    a: number,
+    b: number,
+    c: number
+): void;
 export function __wbg_get_packetanalysisresult_packets(a: number): Array;
 export function __wbg_set_packetanalysisresult_packets(a: number, b: number, c: number): void;
 export function __wbg_get_packetanalysisresult_replay_start_time(a: number): number;

@@ -6,12 +6,12 @@ import topLevelAwait from 'vite-plugin-top-level-await';
 
 // https://vite.dev/config/
 export default defineConfig({
-	plugins: [svelte(), wasm(), topLevelAwait()],
-	resolve: {
-		alias: {
-			$lib: path.resolve('./src/lib'),
-			$wasm: path.resolve('./src/wasm')
-		}
-	},
-	base: ''
+    plugins: [svelte(), wasm(), topLevelAwait()],
+    resolve: {
+        alias: {
+            $lib: path.resolve('./src/lib'),
+            $wasm: path.resolve('./src/wasm')
+        }
+    },
+    base: ''
 });

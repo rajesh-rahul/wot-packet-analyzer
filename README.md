@@ -65,7 +65,7 @@ In `.wotreplay` files, If you see the two bytes `0x80` `0x02` and then a `0x2E` 
 
 ### What is ZLIB?
 
-ZLIB is a data compression library. It allows you to compress data to v
+ZLIB is a data compression library. Many chunks of binary data (usually pickle data) in `.wotreplay` files are compressed with ZLIB.
 
 ## Tech Stack
 
